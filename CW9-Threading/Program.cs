@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Name: Zachary Rose
+// Date: 3/2/2023
+// Class: CSCI352
+// Description: Uses threads and the Monte Carlo method to estimate pi using a random number generator. User inputs number of throws and threads to use. 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,7 +34,7 @@ namespace CW9_Threading
             {
                 x = random.NextDouble();
                 y = random.NextDouble();
-                if (x*x + y*y <= 1)
+                if (Math.Sqrt(x*x + y*y) <= 1)
                 {
                     dartsHit++;
                 }
