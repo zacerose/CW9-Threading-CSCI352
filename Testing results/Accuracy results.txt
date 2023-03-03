@@ -1,0 +1,30 @@
+How many throws should each thread make:
+10
+How many threads should be used:
+10
+Estimation of pi: 3.24
+
+How many throws should each thread make:
+1000
+How many threads should be used:
+10
+Estimation of pi: 3.1524
+
+How many throws should each thread make:
+100000
+How many threads should be used:
+10
+Estimation of pi: 3.142684
+
+How many throws should each thread make:
+10000000
+How many threads should be used:
+10
+Estimation of pi: 3.1414658
+Time Elapsed: 00:00:00.8146171
+
+How many throws should each thread make:
+100000000
+How many threads should be used:
+10
+Estimation of pi: 3.141574664

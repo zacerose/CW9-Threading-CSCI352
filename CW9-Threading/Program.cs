@@ -8,13 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace CW9_Threading
 {
     class FindPiThread
     {
         int dartsToThrow;
-        int dartsHit;
+        long dartsHit;
         Random random;
 
         public FindPiThread(int dartsToThrow)
@@ -23,7 +24,7 @@ namespace CW9_Threading
             dartsHit = 0;
             random = new Random();
         }
-        public int getDartsHit()
+        public long getDartsHit()
         {
             return dartsHit;
         }
@@ -34,6 +35,7 @@ namespace CW9_Threading
             {
                 x = random.NextDouble();
                 y = random.NextDouble();
+                // pythagorean theorem
                 if (Math.Sqrt(x*x + y*y) <= 1)
                 {
                     dartsHit++;
@@ -51,9 +53,11 @@ namespace CW9_Threading
             Console.WriteLine("How many threads should be used: ");
             threads = Int32.Parse(Console.ReadLine());
 
-            List<Thread> threadList = new List<Thread>();
-            List<FindPiThread> piThreads = new List<FindPiThread>();
+            List<Thread> threadList = new List<Thread>(threads);
+            List<FindPiThread> piThreads = new List<FindPiThread>(threads);
 
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
             for (int i = 0; i < threads; i++)
             {
                 FindPiThread piThread = new FindPiThread(throws);
@@ -68,13 +72,16 @@ namespace CW9_Threading
             {
                 thread.Join();
             }
-            int totalHits = 0;
+            long totalHits = 0;
             foreach (FindPiThread piThread in piThreads)
             {
                 totalHits += piThread.getDartsHit(); 
             }
+            timer.Stop();
 
             Console.WriteLine("Estimation of pi: " + (double)4 * totalHits / throws / threads);
+            Console.WriteLine("Time Elapsed: " + timer.Elapsed.ToString());
+            
             Console.ReadKey();
         }
     }
