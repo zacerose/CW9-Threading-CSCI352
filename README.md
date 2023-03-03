@@ -28,4 +28,5 @@ Collated from raw results on a single computer during a single testing period, t
 ## Speed
  - While keeping the number of darts thrown exactly the same, the fastest results were between 10-20 threads. Increasing and decreasing from there slows the results, and increasing too far is shown to be a negative. 
  - Raw output in Testing results/ is sorted from shortest to longest runtime. 
+ - Total throws (throws per thread * number of threads) always equaled 500000000. 
 
